@@ -5,6 +5,15 @@ TagManager:
   serializedVersion: 2
   tags:
   - break
+  - Gate
+  - Coin
+  - Enemy Body
+  - Enemy Head
+  - fallcheck
+  - Bounceplatform
+  - platformSteel
+  - PowerUp
+  - test
   layers:
   - Default
   - TransparentFX

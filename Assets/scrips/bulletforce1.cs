@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class bulletforce1 : MonoBehaviour
 {
+    //life is hoe lang de bullet bestaat 3 is 3 seconde
     public float life = 3;
 
     private void Awake()

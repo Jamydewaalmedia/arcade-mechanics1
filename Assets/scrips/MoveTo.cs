@@ -7,17 +7,27 @@ using UnityEngine.AI;
 public class MoveTo : MonoBehaviour
 {
     NavMeshAgent Agent;
+    private GameObject player;
 
-    public Transform goal;
+    
 
     void Start()
     {
         Agent = GetComponent<NavMeshAgent>();
-        
+        player = GameObject.FindGameObjectWithTag("Player");
+
     }
     void Update()
     {
-       Agent.SetDestination(goal.position);
+        if (player != null)
+        {
+            Agent.SetDestination(player.transform.position);
+        }
+        else
+        {
+            player = GameObject.Find("Player");
+        }
+        
     }
 
 

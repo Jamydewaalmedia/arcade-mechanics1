@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    Rigidbody rb;
     [SerializeField] Transform playerCamera;
     [SerializeField][Range(0.0f, 0.5f)] float mouseSmoothTime = 0.03f;
     [SerializeField] bool cursorLock = true;
@@ -13,6 +14,8 @@ public class Movement : MonoBehaviour
     [SerializeField] float gravity = -30f;
     [SerializeField] Transform groundCheck;
     [SerializeField] LayerMask ground;
+    [SerializeField] float jumpforce = 4f;
+
 
     public float jumpHeight = 6f;
     float velocityY;
@@ -72,6 +75,7 @@ public class Movement : MonoBehaviour
 
         Vector3 velocity = (transform.forward * currentDir.y + transform.right * currentDir.x) * Speed + Vector3.up * velocityY;
 
+        // Handle collisions with platforms
         controller.Move(velocity * Time.deltaTime);
 
         if (isGrounded && Input.GetButtonDown("Jump"))
@@ -83,5 +87,13 @@ public class Movement : MonoBehaviour
         {
             velocityY = -8f;
         }
+    }
+
+
+    void jump()
+    {
+        rb.velocity = new Vector3(rb.velocity.x, jumpforce, rb.velocity.z);
+        
+
     }
 }

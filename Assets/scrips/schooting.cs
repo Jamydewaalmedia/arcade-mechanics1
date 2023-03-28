@@ -12,7 +12,7 @@ public class schooting : MonoBehaviour
     private void Update()
     {
         // press space to schoot an prefab of the bullet prefab 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetMouseButtonDown(0))
         {
             var dog = Barrel.position;
             Debug.Log(dog);
