@@ -28,7 +28,8 @@ public class PlayerLife : MonoBehaviour
             GetComponent<MeshRenderer>().enabled = false;             // Verberg de mesh van de speler
             GetComponent<Rigidbody>().isKinematic = true;             // Maak de rigidbody van de speler kinematisch zodat deze niet meer beweegt
             GetComponent<PlayerMovement>().enabled = false;            // Schakel de beweging van de speler uit
-            Die();                                                      // Roep de Die() functie aan
+            Die(); // Roep de Die() functie aan
+            Debug.Log("enemybody");
         }
         if (collision.gameObject.CompareTag("fallcheck"))    // Als de speler valt
         {
@@ -45,6 +46,11 @@ public class PlayerLife : MonoBehaviour
         {
             Destroy(collision.transform.parent.gameObject); // Vernietig het spelobject 
             rb.velocity = new Vector2(0, powerupvalue);                          // Geef de speler een opwaartse snelheid
+        }
+        if (collision.gameObject.CompareTag("PowerDown"))    // Als de speler tegen een PowerUp botst
+        {
+            Destroy(collision.transform.parent.gameObject); // Vernietig het spelobject 
+            rb.velocity = new Vector2(0, -powerupvalue);                          // Geef de speler een opwaartse snelheid
         }
         if (collision.gameObject.CompareTag("Enemy Head"))     // Als de speler tegen het hoofd van een vijand botst
         {

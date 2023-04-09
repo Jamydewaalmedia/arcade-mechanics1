@@ -17,8 +17,10 @@ public class PlayerRotate : MonoBehaviour
 
     void Start()
     {
+        
         Cursor.lockState = CursorLockMode.Locked;     // Verberg de muiscursor
         Cursor.visible = true;                        // Maak de muiscursor zichtbaar
+        
     }
 
     void Update()
