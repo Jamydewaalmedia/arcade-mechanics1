@@ -15,6 +15,7 @@ TagManager:
   - PowerUp
   - test
   - PowerDown
+  - end
   layers:
   - Default
   - TransparentFX

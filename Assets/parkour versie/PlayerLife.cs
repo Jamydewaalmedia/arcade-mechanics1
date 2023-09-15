@@ -8,12 +8,14 @@ public class PlayerLife : MonoBehaviour
     [SerializeField] float powerupvalue;
     [SerializeField] Rigidbody rb;               // De rigidbody van de speler
     [SerializeField] AudioSource deathSound;     // Het geluid dat afgespeeld wordt als de speler sterft
+    [SerializeField]  AudioSource powerdownsound;
     [SerializeField] float jumpforce = 4f;        // De kracht van de sprong
     bool dead = false;                           // Een boolean om bij te houden of de speler al gestorven is
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        
     }
     private void Update()
     {
@@ -44,11 +46,13 @@ public class PlayerLife : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("PowerUp"))    // Als de speler tegen een PowerUp botst
         {
+            
             Destroy(collision.transform.parent.gameObject); // Vernietig het spelobject 
             rb.velocity = new Vector2(0, powerupvalue);                          // Geef de speler een opwaartse snelheid
         }
         if (collision.gameObject.CompareTag("PowerDown"))    // Als de speler tegen een PowerUp botst
         {
+            powerdownsound.Play();
             Destroy(collision.transform.parent.gameObject); // Vernietig het spelobject 
             rb.velocity = new Vector2(0, -powerupvalue);                          // Geef de speler een opwaartse snelheid
         }

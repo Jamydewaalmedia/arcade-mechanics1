@@ -12,5 +12,9 @@ public class stageClear : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
+        if (gameObject.CompareTag("end"))
+            {
+            Cursor.lockState = CursorLockMode.None;     //ontgrendel de cursor
+        }
     }
 }

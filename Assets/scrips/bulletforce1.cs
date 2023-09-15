@@ -6,6 +6,7 @@ public class bulletforce1 : MonoBehaviour
 {
     //life is hoe lang de bullet bestaat 3 is 3 seconde
     public float life = 3;
+    public GameObject prefab;
 
     private void Awake()
     {
@@ -19,6 +20,7 @@ public class bulletforce1 : MonoBehaviour
         if (collision.gameObject.CompareTag("break"))
         {
             Destroy(collision.gameObject);
+            Instantiate(prefab, transform.position, Quaternion.identity);
         }
 
         // Vernietig het game object waarop het script is gekoppeld
