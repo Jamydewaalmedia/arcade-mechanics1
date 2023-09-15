@@ -47,6 +47,10 @@ public class Presureplate : MonoBehaviour
     }
 
     // wanneer een object de trigger van de drukplaat betreedt
+
+
+
+    //deze code voldoet niet aan srp of dry  omdat hij checkt of hij op een object staat dan het object laat verdwijnen en terug laten komen
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("drukplaat is ingedrukt");
